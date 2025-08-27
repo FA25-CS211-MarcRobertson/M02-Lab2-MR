@@ -75,3 +75,88 @@ DisplayDictionary(dict)
 # Search examples
 print("\nSearch 'name':", SearchByKey(dict, "name"))
 print("Search 'city':", SearchByKey(dict, "city"))
+
+# ------------------------------
+# Array section
+# ------------------------------
+
+
+# Insert an element at the end
+def InsertAtEnd(arr, value):
+    arr.append(value)
+
+# Insert an element at the beginning
+def InsertAtBeginning(arr, value):
+    arr.insert(0, value)
+
+# Insert an element in the middle
+def InsertAtMiddle(arr, value):
+    pos = len(arr) // 2
+    arr.insert(pos, value)
+
+# Delete an element from the end
+def DeleteFromEnd(arr):
+    if arr:
+        arr.pop()
+
+# Delete an element from the beginning
+def DeleteFromBeginning(arr):
+    if arr:
+        arr.pop(0)
+
+# Delete an element from the middle
+def DeleteFromMiddle(arr):
+    if arr:
+        pos = len(arr) // 2
+        for i in range(pos, len(arr) - 1):
+            arr[i] = arr[i + 1]
+        arr.pop()
+
+# Search for an element
+def SearchElement(arr, value):
+    for i in range(len(arr)):
+        if arr[i] == value:
+            return i
+    return -1
+
+# Display array (one element per line)
+def DisplayArray(arr):
+    for element in arr:
+        print(element)
+
+# ------------------------------
+# Each case for array manipulation
+# ------------------------------
+
+arr = [10, 20, 30]
+print("Initial array:")
+DisplayArray(arr)
+
+InsertAtEnd(arr, 40)
+print("\nAfter inserting at end:")
+DisplayArray(arr)
+
+InsertAtBeginning(arr, 5)
+print("\nAfter inserting at beginning:")
+DisplayArray(arr)
+
+InsertAtMiddle(arr, 25)
+print("\nAfter inserting at middle:")
+DisplayArray(arr)
+
+DeleteFromEnd(arr)
+print("\nAfter deleting from end:")
+DisplayArray(arr)
+
+DeleteFromBeginning(arr)
+print("\nAfter deleting from beginning:")
+DisplayArray(arr)
+
+DeleteFromMiddle(arr)
+print("\nAfter deleting from middle:")
+DisplayArray(arr)
+
+# Search for an element (25)
+index = SearchElement(arr, 25)
+print(f"\nIndex of 25: {index}")
+
