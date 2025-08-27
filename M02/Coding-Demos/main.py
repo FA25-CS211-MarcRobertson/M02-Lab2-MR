@@ -160,3 +160,74 @@ DisplayArray(arr)
 index = SearchElement(arr, 25)
 print(f"\nIndex of 25: {index}")
 
+# -------------------------------
+# Comparison function
+# -------------------------------
+
+def compare_array_vs_dict():
+    print("\nComparison: Array vs. Dictionary (for insertion, deletion, and search)")
+
+    # Setup
+    arr = list(range(10000))       # Using Python list for array
+    dict = {i: i for i in range(10000)}  # Dictionary with same 10000 elements
+
+    # Time insertion at end
+    start = time.time()
+    arr.append(10000)
+    arr_insert_time = time.time() - start
+
+    start = time.time()
+    dict[10000] = 10000
+    dict_insert_time = time.time() - start
+
+    print(f"Array insert at end: {arr_insert_time:.6f} seconds")
+    print(f"Dictionary insert: {dict_insert_time:.6f} seconds")
+
+    # Time deletion from end
+    start = time.time()
+    arr.pop()
+    arr_delete_time = time.time() - start
+
+    start = time.time()
+    del dict[10000]
+    dict_delete_time = time.time() - start
+
+    print(f"Array delete from end: {arr_delete_time:.6f} seconds")
+    print(f"Dictionary delete: {dict_delete_time:.6f} seconds")
+
+    # Time search for element 5000
+    start = time.time()
+    arr.index(5000)
+    arr_search_time = time.time() - start
+
+    start = time.time()
+    _ = dict.get(5000)
+    dict_search_time = time.time() - start
+
+    print(f"Array search for 5000: {arr_search_time:.6f} seconds")
+    print(f"Dictionary search for key 5000: {dict_search_time:.6f} seconds")
+
+
+# -------------------------------
+# Main
+# -------------------------------
+
+if __name__ == "__main__":
+    # Your previous array demo
+    arr = [10, 20, 30]
+    print("Initial array:")
+    for element in arr:
+        print(element)
+
+    # Your previous dictionary demo
+    dict = {}
+    dict["name"] = "Marc"
+    dict["age"] = 25
+    dict["city"] = "New York"
+
+    print("\nInitial dictionary:")
+    for key, value in dict.items():
+        print(f"{key} : {value}")
+
+    # Run comparison
+    compare_array_vs_dict()
